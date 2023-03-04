@@ -7,18 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		85CA417B29B25B010018802B /* TodoServy_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA417A29B25B010018802B /* TodoServy_AppApp.swift */; };
+		85CA417B29B25B010018802B /* TodoServy_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA417A29B25B010018802B /* TodoServy_App.swift */; };
 		85CA417D29B25B010018802B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA417C29B25B010018802B /* ContentView.swift */; };
 		85CA417F29B25B020018802B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85CA417E29B25B020018802B /* Assets.xcassets */; };
 		85CA418229B25B020018802B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85CA418129B25B020018802B /* Preview Assets.xcassets */; };
+		85CA418B29B25BE70018802B /* BusinessListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA418A29B25BE70018802B /* BusinessListView.swift */; };
+		85CA419329B262730018802B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA419229B262730018802B /* Constants.swift */; };
+		85CA419629B268A50018802B /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85CA419029B2612E0018802B /* OpenSans-Bold.ttf */; };
+		85CA419729B268A80018802B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85CA418F29B2612E0018802B /* OpenSans-Regular.ttf */; };
+		85CA419829B268AB0018802B /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85CA418E29B2612E0018802B /* OpenSans-Light.ttf */; };
+		85CA419C29B2707F0018802B /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85CA419B29B2707F0018802B /* OpenSans-SemiBold.ttf */; };
+		85CA419F29B2799E0018802B /* Bussiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA419E29B2799E0018802B /* Bussiness.swift */; };
+		85EB7CF429B2898900B16F5E /* BusinessListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EB7CF329B2898900B16F5E /* BusinessListViewModel.swift */; };
+		85EB7CF629B289AA00B16F5E /* BusinessListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EB7CF529B289AA00B16F5E /* BusinessListCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		85CA417729B25B010018802B /* TodoServy App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TodoServy App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		85CA417A29B25B010018802B /* TodoServy_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoServy_AppApp.swift; sourceTree = "<group>"; };
+		85CA417A29B25B010018802B /* TodoServy_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoServy_App.swift; sourceTree = "<group>"; };
 		85CA417C29B25B010018802B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		85CA417E29B25B020018802B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85CA418129B25B020018802B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		85CA418A29B25BE70018802B /* BusinessListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListView.swift; sourceTree = "<group>"; };
+		85CA418E29B2612E0018802B /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		85CA418F29B2612E0018802B /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		85CA419029B2612E0018802B /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		85CA419129B262010018802B /* TodoServy-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TodoServy-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		85CA419229B262730018802B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		85CA419B29B2707F0018802B /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		85CA419E29B2799E0018802B /* Bussiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bussiness.swift; sourceTree = "<group>"; };
+		85EB7CF329B2898900B16F5E /* BusinessListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListViewModel.swift; sourceTree = "<group>"; };
+		85EB7CF529B289AA00B16F5E /* BusinessListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +70,11 @@
 		85CA417929B25B010018802B /* TodoServy App */ = {
 			isa = PBXGroup;
 			children = (
-				85CA417A29B25B010018802B /* TodoServy_AppApp.swift */,
+				85CA419D29B2798B0018802B /* Models */,
+				85CA419129B262010018802B /* TodoServy-App-Info.plist */,
+				85CA418C29B260AC0018802B /* Resources */,
+				85CA418829B25B670018802B /* Scenes */,
+				85CA417A29B25B010018802B /* TodoServy_App.swift */,
 				85CA417C29B25B010018802B /* ContentView.swift */,
 				85CA417E29B25B020018802B /* Assets.xcassets */,
 				85CA418029B25B020018802B /* Preview Content */,
@@ -65,6 +88,52 @@
 				85CA418129B25B020018802B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		85CA418829B25B670018802B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				85CA418929B25BA20018802B /* Business listing */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		85CA418929B25BA20018802B /* Business listing */ = {
+			isa = PBXGroup;
+			children = (
+				85CA418A29B25BE70018802B /* BusinessListView.swift */,
+				85EB7CF329B2898900B16F5E /* BusinessListViewModel.swift */,
+				85EB7CF529B289AA00B16F5E /* BusinessListCoordinator.swift */,
+			);
+			path = "Business listing";
+			sourceTree = "<group>";
+		};
+		85CA418C29B260AC0018802B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				85CA418D29B260BC0018802B /* Fonts */,
+				85CA419229B262730018802B /* Constants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		85CA418D29B260BC0018802B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				85CA419029B2612E0018802B /* OpenSans-Bold.ttf */,
+				85CA418F29B2612E0018802B /* OpenSans-Regular.ttf */,
+				85CA418E29B2612E0018802B /* OpenSans-Light.ttf */,
+				85CA419B29B2707F0018802B /* OpenSans-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		85CA419D29B2798B0018802B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				85CA419E29B2799E0018802B /* Bussiness.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +196,10 @@
 			files = (
 				85CA418229B25B020018802B /* Preview Assets.xcassets in Resources */,
 				85CA417F29B25B020018802B /* Assets.xcassets in Resources */,
+				85CA419729B268A80018802B /* OpenSans-Regular.ttf in Resources */,
+				85CA419829B268AB0018802B /* OpenSans-Light.ttf in Resources */,
+				85CA419C29B2707F0018802B /* OpenSans-SemiBold.ttf in Resources */,
+				85CA419629B268A50018802B /* OpenSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +211,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				85CA417D29B25B010018802B /* ContentView.swift in Sources */,
-				85CA417B29B25B010018802B /* TodoServy_AppApp.swift in Sources */,
+				85CA419F29B2799E0018802B /* Bussiness.swift in Sources */,
+				85CA418B29B25BE70018802B /* BusinessListView.swift in Sources */,
+				85CA417B29B25B010018802B /* TodoServy_App.swift in Sources */,
+				85EB7CF629B289AA00B16F5E /* BusinessListCoordinator.swift in Sources */,
+				85EB7CF429B2898900B16F5E /* BusinessListViewModel.swift in Sources */,
+				85CA419329B262730018802B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +345,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TodoServy App/Preview Content\"";
+				DEVELOPMENT_TEAM = D4W3226HQ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TodoServy-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -295,8 +375,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TodoServy App/Preview Content\"";
+				DEVELOPMENT_TEAM = D4W3226HQ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TodoServy-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

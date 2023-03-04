@@ -1,5 +1,5 @@
 //
-//  TodoServy_AppApp.swift
+//  TodoServy_App.swift
 //  TodoServy App
 //
 //  Created by Thony Gonzalez on 3/03/23.
@@ -8,10 +8,11 @@
 import SwiftUI
 
 @main
-struct TodoServy_AppApp: App {
+struct TodoServy_App: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BusinessListView(viewModel: BusinessListViewModel())
         }
     }
 }
