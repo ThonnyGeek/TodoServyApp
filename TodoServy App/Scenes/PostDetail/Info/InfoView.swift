@@ -57,9 +57,6 @@ struct InfoView: View {
                                 .font(Font.OpenSans.openSemiBold32)
                                 .padding()
                         }
-                        .onTapGesture {
-                            viewModel.modalIsDisplayed.toggle()
-                        }
                     }
                     
                     VStack (spacing: 20) {

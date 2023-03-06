@@ -36,6 +36,8 @@ final class PostDetailViewModel: PostDetailFlowState {
     
     @Published var modalIsDisplayed: Bool = false
     
+    @Published var starsInModal = ["star", "star", "star", "star", "star"]
+    
     let sizes = UIScreen.main.bounds
     
     func didTapSaveButton() {

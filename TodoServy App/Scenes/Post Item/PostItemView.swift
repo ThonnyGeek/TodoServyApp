@@ -173,7 +173,8 @@ struct PostItemView: View {
                     quiteFocusedItems()
                     viewModel.didTapSaveButton() {
                         // MARK: Here
-                        businessData.business.append(Business(id: UUID(), name: viewModel.nameTextField, about: viewModel.aboutTextField, cellphone: viewModel.cellphoneTextField, picture: viewModel.selectedImage!, rate: 0, stars: ["star", "star", "star", "star", "star"]))
+                        businessData.business.append(Business(id: UUID(), name: viewModel.nameTextField, about: viewModel.aboutTextField, cellphone: viewModel.cellphoneTextField, picture: viewModel.selectedImage!, rate: 0, stars: ["star", "star", "star", "star", "star"], totalRating: 0
+                                                             ))
                         viewModel.didTapBackButton()
                     }
                 } label: {
