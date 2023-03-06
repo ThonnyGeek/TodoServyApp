@@ -30,11 +30,9 @@ struct Business: Identifiable {
 }
 
 @MainActor class BusinessData: ObservableObject {
-    //    @Published public var business: [Business] = [
-    //        Business(id: 0, name: "Nombre negocio w1", about: "Este es el About del negocio 1, Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit.", cellphone: "+593 9999 99999", picture: UIImage(named: "orangeIphone")!, rate: 1, stars: [""]),
-    //        Business(id: 1, name: "ASDD", about: "Este es el About del negocio 1, Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit.", cellphone: "+593 9999 99999", picture: UIImage(named: "orangeIphone")!, rate: 1, stars: [""])]
     
-    @Published public var business: [Business] = [Business(id: UUID(), name: "Mascoticas", about: "Este es el About del negocio 1, Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit.", cellphone: "+593 9999 99999", picture: UIImage(named: "orangeIphone")!, rate: 1, stars: [""]),
-                                                  Business(id: UUID(), name: "Mis peques", about: "Este es el About del negocio 2, Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit.", cellphone: "+1 2111 21111", picture: UIImage(named: "orangeIphone")!, rate: 4, stars: [""])
+    @Published public var business: [Business] = [
+        Business(id: UUID(), name: "Mascoticas", about: "Este es el About del negocio 1, Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit.", cellphone: "+593 9999 99999", picture: UIImage(named: "orangeIphone")!, rate: 0, stars: ["star", "star", "star", "star", "star"]),
+        Business(id: UUID(), name: "Mis peques", about: "Este es el About del negocio 2, Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit ipsum dolor sit amet consectetur adipiscing elit.", cellphone: "+1 2111 21111", picture: UIImage(named: "orangeIphone")!, rate: 0, stars: ["star", "star", "star", "star", "star"])
     ]
 }

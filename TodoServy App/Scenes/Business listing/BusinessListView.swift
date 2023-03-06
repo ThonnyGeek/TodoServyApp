@@ -70,7 +70,7 @@ struct ListRowView: View {
                                 .font(Font.OpenSans.openLight14)
                             
                             HStack {
-                                var le = buss.id
+                                let le = buss.id
                                 
                                 if let index = businessData.business.firstIndex(where: { Busi in
                                     Busi.id == le
@@ -118,9 +118,6 @@ struct ListRowView: View {
             .frame(width: Sizes.width)
             .listStyle(.inset)
         }
-        .onAppear{
-            Functs.fetchStars(businessData: businessData, position: nil)
-        }
         .environmentObject(businessData)
     }
 }
@@ -128,5 +125,6 @@ struct ListRowView: View {
 struct BusinessListView_Previews: PreviewProvider {
     static var previews: some View {
         BusinessListView(viewModel: BusinessListViewModel())
+            .environmentObject(BusinessData())
     }
 }

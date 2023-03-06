@@ -66,6 +66,7 @@ struct PostItemView: View {
                         VStack (alignment: .leading) {
                             // Open Camera to take pic
                             Button {
+                                quiteFocusedItems()
                                 viewModel.isImagePickerDisplay.toggle()
                             } label: {
                                 Image(systemName: "camera.fill")
@@ -214,5 +215,7 @@ struct PostItemView_Previews: PreviewProvider {
     static var previews: some View {
         PostItemView(viewModel: PostItemViewModel(path: .constant(.init())))
             .ignoresSafeArea()
+            .environmentObject(BusinessData())
+            .environmentObject(BusinessData())
     }
 }

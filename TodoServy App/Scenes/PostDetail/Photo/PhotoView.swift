@@ -10,9 +10,11 @@ import SwiftUI
 struct PhotoView: View {
     @StateObject var viewModel: PostDetailViewModel
     
+    @EnvironmentObject var businessData:  BusinessData
+    
     var body: some View {
         ZStack {
-            Image("orangeIphone")
+            Image(uiImage: businessData.business[viewModel.postId].picture)
                 .resizable()
                 .scaledToFit()
             
@@ -30,11 +32,14 @@ struct PhotoView: View {
                 .frame(width: viewModel.sizes.width, height: viewModel.sizes.height, alignment: .topLeading)
             }
         }
+        .navigationBarBackButtonHidden()
+        .environmentObject(businessData)
     }
 }
 
 struct PhotoView_Previews: PreviewProvider {
     static var previews: some View {
         PhotoView(viewModel: PostDetailViewModel(path: .constant(.init()), text: "", postId: 0))
+            .environmentObject(BusinessData())
     }
 }

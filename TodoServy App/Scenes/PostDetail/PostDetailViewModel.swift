@@ -39,13 +39,11 @@ final class PostDetailViewModel: PostDetailFlowState {
     let sizes = UIScreen.main.bounds
     
     func didTapSaveButton() {
-        print("s")
-//        self.modalIsDisplayed = false
+        self.modalIsDisplayed = false
     }
     
     func didTapStar(_ id: Int) {
         print("Id: \(id)")
-//        self.modalIsDisplayed = false
     }
     
     func didTabBackButton(onSuccess: @escaping () -> Void) {
@@ -56,7 +54,7 @@ final class PostDetailViewModel: PostDetailFlowState {
     }
     
     func didTapPhoto() {
-        path.append(PostDetailLink.link)
+        path.append(PostDetailLink.photoDestination(postId: postId))
     }
     
     func didTapDeleteBusiness(onSuccess: @escaping () -> Void) {

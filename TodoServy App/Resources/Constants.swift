@@ -68,37 +68,11 @@ public struct Functs {
     
     static var starsTypes = ["star.fill", "star"]
     
-    @MainActor static func fetchStars(businessData: BusinessData, position: Int?) {
-        _ = businessData.business.map {
-            
-            var starsTypes = ["star.fill", "star"]
-            
-            var le = $0.id
-            
-            if position != nil {
-                
-                print("Position = \(position)")
-                print("businessData.business.count \(businessData.business.count)")
-                
-                businessData.business[position!].stars = starst(rate: $0.rate)
-                
-            } else {
-                
-                guard let index = businessData.business.firstIndex(where: { Busi in
-                    Busi.id == le
-                }) else { return }
-                
-                businessData.business[index].stars = starst(rate: $0.rate)
-            }
-            
-        }
-    }
-    
     static func starst(rate: Int) -> [String] {
         
         switch rate {
         case 0:
-            return [self.starsTypes[0], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1]]
+            return [self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1]]
         case 1:
             return [self.starsTypes[0], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1]]
         case 2:

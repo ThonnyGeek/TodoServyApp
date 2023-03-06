@@ -11,7 +11,8 @@ struct RateModalView: View {
     
     @StateObject var viewModel: PostDetailViewModel
     
-    @StateObject var businessData = BusinessData()
+    @EnvironmentObject var businessData: BusinessData
+        
     
     var body: some View {
         ZStack {
@@ -29,18 +30,23 @@ struct RateModalView: View {
                     ForEach(0..<businessData.business[viewModel.postId].stars.count) { index in
                         Button {
                             viewModel.didTapStar(index)
+                            print("Stars: \(businessData.business[viewModel.postId].stars)")
+                    
+//                            businessData.business[viewModel.postId].stars = Functs.starst(rate: index + 1)
+                            
+                            print("Stars: \(businessData.business[viewModel.postId].stars), name: \(businessData.business[viewModel.postId].name)")
                         } label: {
                             Image(systemName: businessData.business[viewModel.postId].stars[index])
                                 .resizable()
                                 .foregroundColor(Colors.starsFillColor)
                                 .frame(width: 40, height: 40)
                                 .scaledToFit()
-                            
                         }
                     }
                 }
                 
                 Button {
+                    businessData.business[viewModel.postId].rate += 1
                     viewModel.didTapSaveButton()
                 } label: {
                     Text("Guardar")
@@ -57,6 +63,7 @@ struct RateModalView: View {
             .background(.white)
             .cornerRadius(25)
         }
+        .environmentObject(businessData)
     }
     
 //    @ViewBuilder private func content() -> some View

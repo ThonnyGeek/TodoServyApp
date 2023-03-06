@@ -17,7 +17,8 @@ open class PostDetailFlowState: ObservableObject {
 }
 
 enum PostDetailLink: Hashable, Identifiable {
-    case link
+    
+    case photoDestination(postId: Int)
     
     var id: String {
         String(describing: self)
@@ -36,12 +37,14 @@ struct PostDetailCoordinator<Content: View>: View {
     }
     
     @ViewBuilder private func linkDestination(link: PostDetailLink) -> some View {
-        let viewModel = PostDetailViewModel(path: state.$path, text: "", postId: 0)
-        PhotoView(viewModel: viewModel)
-            .navigationBarBackButtonHidden()
+        switch link {
+        case .photoDestination(let postId):
+            photoDestination(postId: postId)
+        }
     }
     
-    @ViewBuilder private func sheetContent(item: PostDetailLink) -> some View {
-        EmptyView()
+    private func photoDestination(postId: Int) -> some View {
+        let viewModel = PostDetailViewModel(path: state.$path, text: "", postId: postId)
+        return PhotoView(viewModel: viewModel)
     }
 }

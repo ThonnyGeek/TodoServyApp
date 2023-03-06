@@ -21,7 +21,7 @@ struct PostDetailView: View {
         ZStack {
             
             VStack {
-                Image("orangeIphone")
+                Image(uiImage: businessData.business[viewModel.postId].picture)
                     .resizable()
                     .scaledToFit()
             }
@@ -58,9 +58,6 @@ struct PostDetailView: View {
                 RateModalView(viewModel: viewModel)
             }
         }
-        .onAppear{
-            Functs.fetchStars(businessData: businessData, position: viewModel.postId)
-        }
         .environmentObject(businessData)
         .navigationBarBackButtonHidden()
         .preferredColorScheme(.light)
@@ -71,5 +68,6 @@ struct PostDetailView: View {
 struct PostDetailView_Previews: PreviewProvider {
     static var previews: some View {
         PostDetailView(viewModel: PostDetailViewModel(path: .constant(.init()), text: "", postId: 0))
+            .environmentObject(BusinessData())
     }
 }

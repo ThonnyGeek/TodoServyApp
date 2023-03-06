@@ -105,24 +105,4 @@ final class PostItemViewModel: PostItemFlowState {
             return true
         }
     }
-    
-    var starsTypes = ["star.fill", "star"]
-    
-    func starst(rate: Int) -> [String] {
-        
-        switch rate {
-        case 1:
-            return [self.starsTypes[0], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1]]
-        case 2:
-            return [self.starsTypes[0], self.starsTypes[0], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1]]
-        case 3:
-            return [self.starsTypes[0], self.starsTypes[0], self.starsTypes[0], self.starsTypes[1], self.starsTypes[1]]
-        case 4:
-            return [self.starsTypes[0], self.starsTypes[0], self.starsTypes[0], self.starsTypes[0], self.starsTypes[1]]
-        case 5:
-            return [self.starsTypes[0], self.starsTypes[0], self.starsTypes[0], self.starsTypes[0], self.starsTypes[0]]
-        default:
-            return [self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1]]
-        }
-    }
 }

@@ -39,22 +39,27 @@ struct InfoView: View {
                 Divider()
                 
                 VStack {
-                    Text("Calificación")
-                        .font(Font.OpenSans.openSemiBold20)
-                        .frame(width: viewModel.sizes.width * 0.9, alignment: .leading)
-                    
-                    HStack {
-                        ForEach(0..<$businessData.business[viewModel.postId].stars.count, id: \.self) { pepe in
-                            Image(systemName: businessData.business[viewModel.postId].stars[pepe])
-                                .resizable()
-                                .foregroundColor(Colors.starsFillColor)
-                                .frame(width: 40, height: 40)
-                                .scaledToFit()
-                        }
+                    VStack (spacing: 20) {
+                        Text("Calificación")
+                            .font(Font.OpenSans.openSemiBold20)
+                            .frame(width: viewModel.sizes.width * 0.9, alignment: .leading)
                         
-                        Text("(\(businessData.business[viewModel.postId].rate))")
-                            .font(Font.OpenSans.openSemiBold32)
-                            .padding()
+                        HStack {
+                            ForEach(0..<$businessData.business[viewModel.postId].stars.count, id: \.self) { pepe in
+                                Image(systemName: businessData.business[viewModel.postId].stars[pepe])
+                                    .resizable()
+                                    .foregroundColor(Colors.starsFillColor)
+                                    .frame(width: 40, height: 40)
+                                    .scaledToFit()
+                            }
+                            
+                            Text("(\(businessData.business[viewModel.postId].rate))")
+                                .font(Font.OpenSans.openSemiBold32)
+                                .padding()
+                        }
+                        .onTapGesture {
+                            viewModel.modalIsDisplayed.toggle()
+                        }
                     }
                     
                     VStack (spacing: 20) {
@@ -95,9 +100,6 @@ struct InfoView: View {
         }
         .frame(height: viewModel.sizes.height * 0.65
                , alignment: .bottom)
-        .onAppear{
-            Functs.fetchStars(businessData: businessData, position: nil)
-        }
         .environmentObject(businessData)
     }
 }
@@ -105,5 +107,6 @@ struct InfoView: View {
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
         InfoView(viewModel: PostDetailViewModel(path: .constant(.init()), text: "", postId: 0))
+            .environmentObject(BusinessData())
     }
 }
