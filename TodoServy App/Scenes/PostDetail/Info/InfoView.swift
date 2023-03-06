@@ -11,7 +11,7 @@ struct InfoView: View {
     
     @StateObject var viewModel: PostDetailViewModel
     
-    @StateObject var businessData = BusinessData()
+    @EnvironmentObject var businessData:  BusinessData
     
     var body: some View {
         ScrollView {
@@ -69,9 +69,13 @@ struct InfoView: View {
                                 .clipShape(Capsule())
                                 .shadow(color: .gray, radius: 5, x: 3, y: 3)
                         }
-
+                        
                         Button {
-                            //
+                            viewModel.didTapDeleteBusiness() {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    businessData.business.remove(at: viewModel.postId)
+                                }
+                            }
                         } label: {
                             Text("Eliminar negocio")
                                 .font(Font.OpenSans.openBold20)
@@ -80,7 +84,7 @@ struct InfoView: View {
                                 .background(Colors.buttonDeleteColor)
                                 .clipShape(Capsule())
                                 .shadow(color: .gray, radius: 5, x: 3, y: 3)
-                                
+                            
                         }
                     }
                 }
@@ -92,8 +96,9 @@ struct InfoView: View {
         .frame(height: viewModel.sizes.height * 0.65
                , alignment: .bottom)
         .onAppear{
-            Functs.fetchStars(businessData: businessData)
+            Functs.fetchStars(businessData: businessData, position: nil)
         }
+        .environmentObject(businessData)
     }
 }
 

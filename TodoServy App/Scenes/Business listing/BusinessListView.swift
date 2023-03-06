@@ -53,7 +53,7 @@ struct ListRowView: View {
     @StateObject var viewModel: BusinessListViewModel
     
     @EnvironmentObject var businessData: BusinessData
-
+    
     var body: some View {
         ZStack {
             List(businessData.business) { buss in
@@ -70,19 +70,22 @@ struct ListRowView: View {
                                 .font(Font.OpenSans.openLight14)
                             
                             HStack {
-                                ForEach(0..<5) { pepe in
-                                    if businessData.business[buss.id].stars.isEmpty {
-                                        Image(systemName: "star")
-                                    } else {
-                                        Image(systemName: businessData.business[buss.id].stars[pepe])
-                                            .foregroundColor(Colors.starsFillColor)
+                                var le = buss.id
+                                
+                                if let index = businessData.business.firstIndex(where: { Busi in
+                                    Busi.id == le
+                                }) {
+                                    ForEach(0..<businessData.business[index].stars.count) { pepe in
+                                        if businessData.business[index].stars.isEmpty {
+                                            Image(systemName: "star")
+                                        } else {
+                                            Image(systemName: businessData.business[index].stars[pepe])
+                                                .foregroundColor(Colors.starsFillColor)
+                                        }
                                     }
                                 }
                                 
                                 Text("(\(buss.rate))")
-                                    .font(Font.OpenSans.openSemiBold16)
-                                
-                                Text("(\(buss.id))")
                                     .font(Font.OpenSans.openSemiBold16)
                             }
                         }
@@ -90,7 +93,7 @@ struct ListRowView: View {
                         
                         Spacer()
                         
-                        Image("orangeIphone")
+                        Image(uiImage: buss.picture)
                             .resizable()
                             .padding(10)
                             .background(.white)
@@ -99,11 +102,14 @@ struct ListRowView: View {
                             .shadow(color: Colors.shadowGray, radius: 5, x: 0, y: 4)
                     }
                     .listRowSeparator(.hidden)
-                    .onTapGesture {
-                        viewModel.openPostDetail(itemId: buss.id)
-                    }
                     .frame(width: Sizes.width * 0.9)
                     .padding(.vertical, 10)
+                    .background()
+                    .onTapGesture {
+                        let index = Functs.indexOfElement(businessData: businessData, buss: buss.id)
+                        print("Index \(index)")
+                        viewModel.openPostDetail(itemId: index)
+                    }
                     
                     Divider()
                 }
@@ -113,13 +119,10 @@ struct ListRowView: View {
             .listStyle(.inset)
         }
         .onAppear{
-//            _ = businessData.business.map {
-//                businessData.business[$0.id].stars = viewModel.starst(rate: $0.rate)
-//            }
-            Functs.fetchStars(businessData: businessData)
+            Functs.fetchStars(businessData: businessData, position: nil)
         }
+        .environmentObject(businessData)
     }
-    
 }
 
 struct BusinessListView_Previews: PreviewProvider {

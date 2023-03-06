@@ -172,18 +172,7 @@ struct PostItemView: View {
                     quiteFocusedItems()
                     viewModel.didTapSaveButton() {
                         // MARK: Here
-                        
-                        DispatchQueue.main.async {
-                            businessData.business.append(Business(id: businessData.business.count, name: viewModel.nameTextField, about: viewModel.aboutTextField, cellphone: viewModel.cellphoneTextField, picture: viewModel.selectedImage!, rate: 0, stars: [""]))
-                            
-                            for business in businessData.business {
-                                businessData.business[business.id].stars = viewModel.starst(rate: business.rate)
-                            }
-                            
-//                            print(<#T##items: Any...##Any#>)
-                            
-                        }
-                        
+                        businessData.business.append(Business(id: UUID(), name: viewModel.nameTextField, about: viewModel.aboutTextField, cellphone: viewModel.cellphoneTextField, picture: viewModel.selectedImage!, rate: 0, stars: ["star", "star", "star", "star", "star"]))
                         viewModel.didTapBackButton()
                     }
                 } label: {

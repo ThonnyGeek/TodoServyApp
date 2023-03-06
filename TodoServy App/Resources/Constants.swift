@@ -8,28 +8,25 @@
 import SwiftUI
 
 
-//struct TodoServyFonts {
-//    public var openRegular = "OpenSans-Regular.ttf"
-//    public var openBold = "OpenSans-Bold.ttf"
-//    public var openLight = "OpenSans-Light.ttf"
-//}
-
 public extension Font {
     struct OpenSans {
+        // Light
         public static let openLight14 = Font.custom("OpenSansCondensed-Light", size: 14)
         public static let openLight18 = Font.custom("OpenSansCondensed-Light", size: 18)
+        //Regular
+        public static let openRegular16 = Font.custom("OpenSansCondensed-Regular", size: 16)
+        //Bold
         public static let openBold16 = Font.custom("OpenSansCondensed-Bold", size: 16)
         public static let openBold20 = Font.custom("OpenSansCondensed-Bold", size: 20)
         public static let openBold24 = Font.custom("OpenSansCondensed-Bold", size: 24)
+        //Semi-Bold
         public static let openTitle32 = Font.custom("OpenSansCondensed-ExtraBold", size: 32)
         public static let openSemiBold16 = Font.custom("OpenSansCondensed-SemiBold", size: 16)
         public static let openSemiBold20 = Font.custom("OpenSansCondensed-SemiBold", size: 20)
         public static let openSemiBold32 = Font.custom("OpenSansCondensed-SemiBold", size: 32)
-        
-        public static let openRegular16 = Font.custom("OpenSansCondensed-Regular", size: 16)
-        
+        //Extra-Bold
         public static let openExtraBold16 = Font.custom("OpenSansCondensed-ExtraBold", size: 16)
-        //OpenSans_Condensed-ExtraBold
+        
         private init() { }
     }
 }
@@ -67,17 +64,41 @@ public struct Sizes {
 
 public struct Functs {
     
+    @EnvironmentObject var businessData:  BusinessData
+    
     static var starsTypes = ["star.fill", "star"]
     
-    @MainActor static func fetchStars(businessData: BusinessData) {
+    @MainActor static func fetchStars(businessData: BusinessData, position: Int?) {
         _ = businessData.business.map {
-            businessData.business[$0.id].stars = starst(rate: $0.rate)
+            
+            var starsTypes = ["star.fill", "star"]
+            
+            var le = $0.id
+            
+            if position != nil {
+                
+                print("Position = \(position)")
+                print("businessData.business.count \(businessData.business.count)")
+                
+                businessData.business[position!].stars = starst(rate: $0.rate)
+                
+            } else {
+                
+                guard let index = businessData.business.firstIndex(where: { Busi in
+                    Busi.id == le
+                }) else { return }
+                
+                businessData.business[index].stars = starst(rate: $0.rate)
+            }
+            
         }
     }
     
     static func starst(rate: Int) -> [String] {
         
         switch rate {
+        case 0:
+            return [self.starsTypes[0], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1]]
         case 1:
             return [self.starsTypes[0], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1]]
         case 2:
@@ -92,15 +113,14 @@ public struct Functs {
             return [self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1]]
         }
     }
+    
+    @MainActor static func indexOfElement(businessData: BusinessData, buss: UUID) -> Int {
+        let le = buss
+        
+        guard let index = businessData.business.firstIndex(where: { Busi in
+            Busi.id == le
+        }) else { return 0 }
+        
+        return index
+    }
 }
-
-/*
- OpenSans_Condensed-Light.ttf
- OpenSans_Condensed-Bold.ttf
- OpenSans_Condensed-SemiBold.ttf
- OpenSansCondensed-Light
- OpenSansCondensed-SemiBold
- OpenSansCondensed-Bold
- 
- 
- */

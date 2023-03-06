@@ -11,7 +11,7 @@ final class PostDetailViewModel: PostDetailFlowState {
 
     @Published var postId: Int
     
-    @StateObject var businessData = BusinessData()
+    @EnvironmentObject var businessData:  BusinessData
 
     @Published var text: String
 
@@ -25,7 +25,6 @@ final class PostDetailViewModel: PostDetailFlowState {
         self.postId = postId
 
         super.init(path: path)
-        fillFields()
     }
     
     @Published var name: String = ""
@@ -36,19 +35,6 @@ final class PostDetailViewModel: PostDetailFlowState {
     @Published var stars: [String] = []
     
     @Published var modalIsDisplayed: Bool = false
-    
-    func fillFields() {
-        for bussy in businessData.business {
-            self.name = bussy.name
-            self.about = bussy.about
-            self.cellphone = bussy.cellphone
-            self.picture = bussy.picture
-            self.rate = bussy.rate
-            self.stars = bussy.stars
-        }
-    }
-    
-    var starsTypes = ["star.fill", "star"]
     
     let sizes = UIScreen.main.bounds
     
@@ -62,37 +48,20 @@ final class PostDetailViewModel: PostDetailFlowState {
 //        self.modalIsDisplayed = false
     }
     
-    func didTabBackButton() {
+    func didTabBackButton(onSuccess: @escaping () -> Void) {
         path.removeLast()
+        DispatchQueue.main.async {
+            onSuccess()
+        }
     }
     
     func didTapPhoto() {
         path.append(PostDetailLink.link)
     }
     
-    func starst(rate: Int) -> [String] {
-        
-        switch rate {
-        case 1:
-            return [self.starsTypes[0], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1]]
-        case 2:
-            return [self.starsTypes[0], self.starsTypes[0], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1]]
-        case 3:
-            return [self.starsTypes[0], self.starsTypes[0], self.starsTypes[0], self.starsTypes[1], self.starsTypes[1]]
-        case 4:
-            return [self.starsTypes[0], self.starsTypes[0], self.starsTypes[0], self.starsTypes[0], self.starsTypes[1]]
-        case 5:
-            return [self.starsTypes[0], self.starsTypes[0], self.starsTypes[0], self.starsTypes[0], self.starsTypes[0]]
-        default:
-            return [self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1], self.starsTypes[1]]
-        }
-    }
-    
-    // View functions
-    
-    func fetchStars() {
-        _ = businessData.business.map {
-            businessData.business[$0.id].stars = starst(rate: $0.rate)
+    func didTapDeleteBusiness(onSuccess: @escaping () -> Void) {
+        didTabBackButton() {
+            onSuccess()
         }
     }
 }

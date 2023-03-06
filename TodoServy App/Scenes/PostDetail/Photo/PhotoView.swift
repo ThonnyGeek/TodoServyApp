@@ -18,7 +18,7 @@ struct PhotoView: View {
             
             VStack {
                 Button {
-                    viewModel.didTabBackButton()
+                    viewModel.didTabBackButton() { }
                 } label: {
                     Image(systemName: "xmark.circle")
                         .resizable()

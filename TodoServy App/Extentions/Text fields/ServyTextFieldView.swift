@@ -17,6 +17,7 @@ struct ServyTextFieldView: TextFieldStyle {
         ZStack {
             VStack (alignment: .leading) {
                 Text(title)
+                    .font(Font.OpenSans.openRegular16)
                 
                 configuration
                     .padding(10)
