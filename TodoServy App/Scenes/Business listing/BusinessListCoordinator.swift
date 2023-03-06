@@ -13,7 +13,9 @@ open class BusinessListFlowState: ObservableObject {
 }
 
 enum BusinessListLink: Hashable, Identifiable {
-case link
+    
+    case postDetail(postId: Int)
+    case postItem
     
     var id: String {
         String(describing: self)
@@ -27,17 +29,29 @@ struct BusinessListCoordinator<Content: View>: View {
     
     var body: some View {
         NavigationStack(path: $state.path) {
-            content()
-//                .sheet(item: $state.presentedItem, content: sheetContent)
-                .navigationDestination(for: BusinessListLink.self, destination: linkDestination)
+            ZStack {
+                content()
+            }
+            .navigationDestination(for: BusinessListLink.self, destination: linkDestination)
         }
     }
     
     @ViewBuilder private func linkDestination(link: BusinessListLink) -> some View {
-        EmptyView()
+        switch link {
+        case .postDetail(let postId):
+            postDetailDestination(postId: postId)
+        case .postItem:
+            postItemDestination()
+        }
     }
     
-    @ViewBuilder private func sheetContent(item: BusinessListLink) -> some View {
-        EmptyView()
+    private func postDetailDestination(postId: Int) -> some View {
+        let viewModel = PostDetailViewModel(path: $state.path, text: "", postId: postId)
+        return PostDetailView(viewModel: viewModel)
+    }
+    
+    private func postItemDestination() -> some View {
+        let viewModel = PostItemViewModel(path: $state.path)
+        return PostItemView(viewModel: viewModel)
     }
 }
