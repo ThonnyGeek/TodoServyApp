@@ -108,17 +108,25 @@ struct RateModalView: View {
                         .font(Font.OpenSans.openBold20)
                         .frame(width: UIScreen.main.bounds.width * 0.5, height: 50)
                         .foregroundColor(.white)
-                        .background(Colors.buttonSaveColor)
+                        .background(buttonBackgroundColor())
                         .cornerRadius(20)
                         .shadow(color: .gray, radius: 5, x: 3, y: 3)
                 }
-
+                .disabled(isDisabled())
             }
             .frame(width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.height * 0.3)
             .background(.white)
             .cornerRadius(25)
         }
         .environmentObject(businessData)
+    }
+    
+    func buttonBackgroundColor() -> Color {
+        return isDisabled() ? Colors.shadowGray : Colors.buttonSaveColor
+    }
+    
+    func isDisabled() -> Bool {
+        return businessData.business[viewModel.postId].stars == viewModel.emptyRate
     }
     
 //    @ViewBuilder private func content() -> some View

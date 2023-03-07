@@ -16,4 +16,11 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }
+    
+    func isValidPhoneNumber() -> Bool {
+        let regEx = "^\\+(?:[0-9]?){6,14}[0-9]$"
+
+        let phoneCheck = NSPredicate(format: "SELF MATCHES[c] %@", regEx)
+        return phoneCheck.evaluate(with: self)
+    }
 }

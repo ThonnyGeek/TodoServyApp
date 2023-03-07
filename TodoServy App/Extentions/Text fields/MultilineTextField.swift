@@ -8,20 +8,12 @@
 import UIKit
 import SwiftUI
 
-class MLFViewModel: ObservableObject {
-    @Published var isError: Bool
-    init(isError: Bool) {
-        self.isError = isError
-    }
-}
-
 struct MultilineTextFieldView: View {
-    
-    var isError: Bool
     
     @Binding var txt: String
     @State private var editing: Bool = false
     var title: String
+    var isError: Bool
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -54,12 +46,6 @@ struct MultilineTextFieldView: View {
     
     func fontColor() -> CGFloat {
         return editing ? 2 : 0.5
-    }
-}
-
-struct lsdklsd_Previews: PreviewProvider {
-    static var previews: some View {
-        MultilineTextFieldView(isError: true, txt: .constant(""), title: "Title")
     }
 }
 
@@ -121,5 +107,12 @@ struct MultilineTextField: UIViewRepresentable {
                 textView.textColor = UIColor(Colors.textFieldFontColor)
             }
         }
+    }
+}
+
+
+struct MultilineTextFieldView_Previews: PreviewProvider {
+    static var previews: some View {
+        MultilineTextFieldView(txt: .constant("w"), title: "sd", isError: true)
     }
 }

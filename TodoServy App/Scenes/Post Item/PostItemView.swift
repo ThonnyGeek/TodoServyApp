@@ -40,15 +40,15 @@ struct PostItemView: View {
                         
                         // Name section
                         TextField("El nombre de tu negocio", text: $viewModel.nameTextField)
-                            .textFieldStyle(ServyTextFieldView(isError: !viewModel.isNameValid, title: "Nombre"))
+                            .textFieldStyle(ServyTextFieldView(isError: !viewModel.isNameValid, errorLabel: "Este campo es requerido", title: "Nombre"))
                             .focused($isNameFocusedField)
                             .onTapGesture {
                                 isNameFocusedField = true
                             }
                         
                         // Cellphone section
-                        TextField("Teléfono celular", text: $viewModel.cellphoneTextField)
-                            .textFieldStyle(ServyTextFieldView(isError: !viewModel.isCellphoneValid, title: "Teléfono"))
+                        TextField("+57 319 1231212", text: $viewModel.cellphoneTextField)
+                            .textFieldStyle(ServyCellphoneFieldView(isError: !viewModel.isCellphoneValid, errorLabel: viewModel.errorLabel, title: "Teléfono"))
                             .focused($isCellphoneFocusedField)
                             .keyboardType(.phonePad)
                             .onTapGesture {
@@ -173,8 +173,7 @@ struct PostItemView: View {
                     quiteFocusedItems()
                     viewModel.didTapSaveButton() {
                         // MARK: Here
-                        businessData.business.append(Business(id: UUID(), name: viewModel.nameTextField, about: viewModel.aboutTextField, cellphone: viewModel.cellphoneTextField, picture: viewModel.selectedImage!, rate: 0, stars: ["star", "star", "star", "star", "star"], totalRating: 0
-                                                             ))
+                        businessData.business.append(Business(id: UUID(), name: viewModel.nameTextField, about: viewModel.aboutTextField, cellphone: viewModel.cellphoneTextField, picture: viewModel.selectedImage!, rate: 0, stars: ["star", "star", "star", "star", "star"]))
                         viewModel.didTapBackButton()
                     }
                 } label: {

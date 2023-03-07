@@ -29,7 +29,6 @@
 		85BD7E4B29B3B86F00623732 /* CameraCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BD7E4A29B3B86F00623732 /* CameraCoordinator.swift */; };
 		85BD7E5029B3C19F00623732 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BD7E4F29B3C19F00623732 /* MultilineTextField.swift */; };
 		85CA417B29B25B010018802B /* TodoServy_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA417A29B25B010018802B /* TodoServy_App.swift */; };
-		85CA417D29B25B010018802B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA417C29B25B010018802B /* ContentView.swift */; };
 		85CA417F29B25B020018802B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85CA417E29B25B020018802B /* Assets.xcassets */; };
 		85CA418229B25B020018802B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85CA418129B25B020018802B /* Preview Assets.xcassets */; };
 		85CA418B29B25BE70018802B /* BusinessListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA418A29B25BE70018802B /* BusinessListView.swift */; };
@@ -71,7 +70,6 @@
 		85BD7E4F29B3C19F00623732 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		85CA417729B25B010018802B /* TodoServy App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TodoServy App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85CA417A29B25B010018802B /* TodoServy_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoServy_App.swift; sourceTree = "<group>"; };
-		85CA417C29B25B010018802B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		85CA417E29B25B020018802B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85CA418129B25B020018802B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		85CA418A29B25BE70018802B /* BusinessListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListView.swift; sourceTree = "<group>"; };
@@ -120,11 +118,19 @@
 		85790D9B29B46FFB00E3B87F /* Text fields */ = {
 			isa = PBXGroup;
 			children = (
+				857E225C29B6B7D500E5BB8E /* Multiline */,
 				85BD7E4F29B3C19F00623732 /* MultilineTextField.swift */,
 				85790D9829B46E3500E3B87F /* TextFieldError.swift */,
 				85790D9C29B4702300E3B87F /* ServyTextFieldView.swift */,
 			);
 			path = "Text fields";
+			sourceTree = "<group>";
+		};
+		857E225C29B6B7D500E5BB8E /* Multiline */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Multiline;
 			sourceTree = "<group>";
 		};
 		85BD7E3729B3407600623732 /* Info */ = {
@@ -203,14 +209,13 @@
 		85CA417929B25B010018802B /* TodoServy App */ = {
 			isa = PBXGroup;
 			children = (
+				85CA417A29B25B010018802B /* TodoServy_App.swift */,
 				85790D9A29B46FE700E3B87F /* Extentions */,
 				85790D9529B46D4D00E3B87F /* Foundation */,
 				85CA419129B262010018802B /* TodoServy-App-Info.plist */,
 				85CA418C29B260AC0018802B /* Resources */,
 				85CA419D29B2798B0018802B /* Models */,
 				85CA418829B25B670018802B /* Scenes */,
-				85CA417A29B25B010018802B /* TodoServy_App.swift */,
-				85CA417C29B25B010018802B /* ContentView.swift */,
 				85CA417E29B25B020018802B /* Assets.xcassets */,
 				85CA418029B25B020018802B /* Preview Content */,
 			);
@@ -391,7 +396,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85CA417D29B25B010018802B /* ContentView.swift in Sources */,
 				85BD7E3F29B345D100623732 /* PostItemView.swift in Sources */,
 				85EB7D0D29B313B000B16F5E /* RateStarsView.swift in Sources */,
 				85EB7D1129B313F200B16F5E /* RateStarsCoordinator.swift in Sources */,

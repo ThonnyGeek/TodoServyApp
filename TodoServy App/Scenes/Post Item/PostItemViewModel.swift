@@ -31,9 +31,13 @@ final class PostItemViewModel: PostItemFlowState {
     @Published var cellphoneTextField: String = "" {
         willSet {
             if newValue.isEmpty {
+                errorLabel = "Este campo es requerido"
                 isCellphoneValid = false
             } else {
-                isCellphoneValid = true
+                isCellphoneValid = newValue.isValidRegx(pattern: "^\\+(?:[0-9]?){6,14}[0-9]$")
+                if !isCellphoneValid {
+                    errorLabel = "Escribe un número de teléfono real"
+                }
             }
         }
     }
@@ -49,6 +53,8 @@ final class PostItemViewModel: PostItemFlowState {
             }
         }
     }
+    
+    @Published var errorLabel: String = "Este campo es requerido"
     
     // Image variables
     @Published var selectedImage: UIImage? {
