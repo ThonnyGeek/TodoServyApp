@@ -35,21 +35,5 @@ struct PostItemCoordinator<Content: View>: View {
         ZStack {
             content()
         }
-        .navigationDestination(for: PostItemLink.self, destination: linkDestination)
-    }
-    
-    @ViewBuilder private func linkDestination(link: PostItemLink) -> some View {
-        switch link {
-        case .save:
-            var viewModel = PostItemViewModel(path: state.$path)
-            
-            ImagePickerView(viewModel: viewModel)
-            
-        case .addPic:
-            var viewModel = PostItemViewModel(path: state.$path)
-            
-            ImagePickerView(viewModel: viewModel)
-            
-        }
     }
 }

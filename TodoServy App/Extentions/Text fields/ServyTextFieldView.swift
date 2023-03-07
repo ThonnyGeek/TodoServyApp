@@ -30,7 +30,9 @@ struct ServyCellphoneFieldView: TextFieldStyle {
                         Image(systemName: "xmark.app.fill")
                             .foregroundColor(.red)
                         Text(errorLabel)
+                            .frame(width: UIScreen.main.bounds.width * 0.8, alignment: .leading)
                             .foregroundColor(.red)
+                        
                     }
                     .padding(.top, 5)
                 }
@@ -92,8 +94,9 @@ struct ServyTextFieldView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             TextField("sss", text: .constant("aaa"))
-                .textFieldStyle(ServyCellphoneFieldView(isError: false, errorLabel: "as"
+                .textFieldStyle(ServyCellphoneFieldView(isError: true, errorLabel: "as"
                                                     , title: "Télefono"))
         }
+        .environmentObject(BusinessData())
     }
 }

@@ -54,6 +54,8 @@ public struct Colors {
     
     static let shadowGray = Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.735125207)) // #CDCDCD
     
+    static let postButtonBlue = Color(#colorLiteral(red: 0, green: 0.7068228722, blue: 1, alpha: 1)) // #0048FF
+    
 }
 
 public struct Sizes {

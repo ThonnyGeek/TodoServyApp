@@ -14,13 +14,15 @@ struct PhotoView: View {
     
     var body: some View {
         ZStack {
+            //Main Pic
             Image(uiImage: businessData.business[viewModel.postId].picture)
                 .resizable()
                 .scaledToFit()
             
             VStack {
+                // Back Button
                 Button {
-                    viewModel.didTabBackButton() { }
+                    viewModel.didTabBackButton()
                 } label: {
                     Image(systemName: "xmark.circle")
                         .resizable()

@@ -33,9 +33,8 @@ final class PostDetailViewModel: PostDetailFlowState {
     @Published var picture: UIImage = UIImage(named: "orangeIphone")!
     @Published var rate: Int = 0
     @Published var stars: [String] = []
-    
     @Published var modalIsDisplayed: Bool = false
-    
+    @Published var saveButtonIsDisabled: Bool = true
     @Published var starsInModal = ["star", "star", "star", "star", "star"]
     
     let emptyRate = ["star", "star", "star", "star", "star"]
@@ -43,27 +42,28 @@ final class PostDetailViewModel: PostDetailFlowState {
     let sizes = UIScreen.main.bounds
     
     func didTapSaveButton() {
+        self.starsInModal = self.emptyRate
+        
         self.modalIsDisplayed = false
+        
+        self.saveButtonIsDisabled = true
     }
     
-    func didTapStar(_ id: Int) {
-        print("Id: \(id)")
-    }
-    
-    func didTabBackButton(onSuccess: @escaping () -> Void) {
-        path.removeLast()
-        DispatchQueue.main.async {
-            onSuccess()
+    func didTapStar() {
+        if self.saveButtonIsDisabled {
+            self.saveButtonIsDisabled.toggle()
         }
+    }
+    
+    func didTabBackButton() {
+        path.removeLast()
     }
     
     func didTapPhoto() {
         path.append(PostDetailLink.photoDestination(postId: postId))
     }
     
-    func didTapDeleteBusiness(onSuccess: @escaping () -> Void) {
-        didTabBackButton() {
-            onSuccess()
-        }
+    func didTapDeleteBusiness() {
+        didTabBackButton()
     }
 }

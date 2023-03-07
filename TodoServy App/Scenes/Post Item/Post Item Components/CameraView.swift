@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-struct ImagePicker: UIViewControllerRepresentable {
+struct CameraView: UIViewControllerRepresentable {
     
     @Binding var selectedImage: UIImage?
     @Environment(\.presentationMode) var isPresented
@@ -33,9 +33,9 @@ struct ImagePicker: UIViewControllerRepresentable {
 }
 
 class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    var picker: ImagePicker
+    var picker: CameraView
     
-    init(picker: ImagePicker) {
+    init(picker: CameraView) {
         self.picker = picker
     }
     

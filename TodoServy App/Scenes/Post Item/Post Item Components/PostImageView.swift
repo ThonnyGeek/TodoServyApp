@@ -23,8 +23,6 @@ struct PostImageView: View {
         .frame(width: UIScreen.main.bounds.width)
         .padding(.bottom, 40)
     }
-    
-    
 }
 
 struct PostImageView_Previews: PreviewProvider {

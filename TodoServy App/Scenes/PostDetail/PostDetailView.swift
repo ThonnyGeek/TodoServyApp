@@ -20,6 +20,7 @@ struct PostDetailView: View {
     @ViewBuilder private func content() -> some View {
         ZStack {
             
+            //Image
             VStack {
                 Image(uiImage: businessData.business[viewModel.postId].picture)
                     .resizable()
@@ -31,8 +32,10 @@ struct PostDetailView: View {
             }
             
             VStack {
+                
+                // Back Button
                 Button {
-                    viewModel.didTabBackButton() { }
+                    viewModel.didTabBackButton()
                 } label: {
                     Image(systemName: "xmark.circle")
                         .resizable()

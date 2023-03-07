@@ -11,8 +11,6 @@ import PhotosUI
 
 final class PostItemViewModel: PostItemFlowState {
     
-    
-    
     // Text field validations variables
     @Published var isNameValid = true
     @Published var isCellphoneValid = true
@@ -36,8 +34,9 @@ final class PostItemViewModel: PostItemFlowState {
             } else {
                 isCellphoneValid = newValue.isValidRegx(pattern: "^\\+(?:[0-9]?){6,14}[0-9]$")
                 if !isCellphoneValid {
-                    errorLabel = "Escribe un número de teléfono real"
+                    errorLabel = "Escribe un número de teléfono real, que comience con +"
                 }
+                print("\(newValue), is: \(isCellphoneValid)")
             }
         }
     }
@@ -105,7 +104,12 @@ final class PostItemViewModel: PostItemFlowState {
             isAboutValid = false
         }
         
-        if selectedImage == nil || nameTextField.isEmpty || cellphoneTextField.isEmpty || aboutTextField.isEmpty {
+        return checkAllFields()
+    }
+    
+    func checkAllFields() -> Bool {
+        
+        if selectedImage == nil || !isNameValid || !isCellphoneValid || !isAboutValid {
             return false
         } else {
             return true

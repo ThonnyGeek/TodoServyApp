@@ -73,11 +73,11 @@ struct InfoView: View {
                         }
                         
                         Button {
-                            viewModel.didTapDeleteBusiness() {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    businessData.business.remove(at: viewModel.postId)
-                                }
+                            viewModel.didTapDeleteBusiness()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                                businessData.business.remove(at: viewModel.postId)
                             }
+
                         } label: {
                             Text("Eliminar negocio")
                                 .font(Font.OpenSans.openBold20)

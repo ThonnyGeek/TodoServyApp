@@ -19,6 +19,8 @@ struct BusinessListView: View {
     }
     
     @ViewBuilder private func content() -> some View {
+        
+        //Main navigation view
         NavigationView {
             ListRowView(viewModel: viewModel)
                 .padding(.top, 25)
@@ -26,6 +28,8 @@ struct BusinessListView: View {
         .environmentObject(businessData)
         .preferredColorScheme(.light)
         .toolbar {
+            
+            // Top bar view
             HStack {
                 Text("Lista de negocios")
                     .font(Font.OpenSans.openTitle32)
@@ -33,12 +37,13 @@ struct BusinessListView: View {
                 
                 Spacer()
                 
+                // Post button
                 Button {
                     viewModel.openPostItemView()
                 } label: {
                     Image(systemName: "plus.circle")
                         .resizable()
-                        .foregroundColor(viewModel.blue)
+                        .foregroundColor(Colors.postButtonBlue)
                         .frame(width: 35, height: 35)
                         .padding()
                 }
@@ -56,10 +61,15 @@ struct ListRowView: View {
     
     var body: some View {
         ZStack {
+            // Main list view
             List(businessData.business) { buss in
+                
                 Section {
+                    
                     HStack {
-                        VStack (alignment: .leading){
+                        
+                        // Left side
+                        VStack (alignment: .leading) {
                             Text(buss.name)
                                 .font(Font.OpenSans.openBold24)
                             
@@ -93,6 +103,7 @@ struct ListRowView: View {
                         
                         Spacer()
                         
+                        // Right side
                         Image(uiImage: buss.picture)
                             .resizable()
                             .padding(10)
@@ -107,7 +118,6 @@ struct ListRowView: View {
                     .background()
                     .onTapGesture {
                         let index = Functs.indexOfElement(businessData: businessData, buss: buss.id)
-                        print("Index \(index)")
                         viewModel.openPostDetail(itemId: index)
                     }
                     

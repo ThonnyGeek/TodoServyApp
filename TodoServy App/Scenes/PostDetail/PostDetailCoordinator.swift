@@ -32,7 +32,6 @@ struct PostDetailCoordinator<Content: View>: View {
     
     var body: some View {
         content()
-        //                .sheet(item: <#$state.presentedItem#>, content: <#sheetContent#>)
             .navigationDestination(for: PostDetailLink.self, destination: linkDestination)
     }
     

@@ -18,8 +18,6 @@ struct PostItemView: View {
     @FocusState var isCellphoneFocusedField: Bool
     @FocusState var isAboutFocusedField: Bool
     
-//    let pro = BusinessData()
-    
     var body: some View {
         PostItemCoordinator(state: viewModel, content: content)
             .environmentObject(businessData)
@@ -56,7 +54,7 @@ struct PostItemView: View {
                             }
                         
                         // About section
-                        MultilineTextFieldView(isError: !viewModel.isAboutValid, txt: $viewModel.aboutTextField, title: "Acerca de")
+                        MultilineTextFieldView(txt: $viewModel.aboutTextField, title: "Acerca de", isError: !viewModel.isAboutValid)
                             .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.15, alignment: .topLeading)
                             .focused($isAboutFocusedField)
                             .onTapGesture {
@@ -89,7 +87,6 @@ struct PostItemView: View {
                                                 .foregroundColor(Colors.textFieldBorderErrorColor)
                                         }
 
-                                        
                                         Spacer()
                                     }
                                     
@@ -128,6 +125,7 @@ struct PostItemView: View {
                     }
                     .frame(alignment: .top)
                     .toolbar {
+                        // Keyboard Top Button
                         ToolbarItemGroup(placement: .keyboard) {
                             Button("Listo") {
                                 quiteFocusedItems()
@@ -138,7 +136,8 @@ struct PostItemView: View {
                 }
                 .frame(minHeight: Sizes.height * 1.05, alignment: .top)
                 .fullScreenCover(isPresented: $viewModel.isImagePickerDisplay) {
-                    ImagePicker(selectedImage: $viewModel.selectedImage, sourceType: .camera)
+                    // Show camera
+                    CameraView(selectedImage: $viewModel.selectedImage, sourceType: .camera)
                         .ignoresSafeArea()
                 }
                 .padding(.top, 40)
@@ -149,7 +148,10 @@ struct PostItemView: View {
             .scrollIndicators(.hidden)
             .padding(.top, 50)
             
+            // Background = Top and Bottom components
             VStack {
+                
+                //Back button
                 Button {
                     quiteFocusedItems()
                     DispatchQueue.main.async {
@@ -215,7 +217,6 @@ struct PostItemView_Previews: PreviewProvider {
     static var previews: some View {
         PostItemView(viewModel: PostItemViewModel(path: .constant(.init())))
             .ignoresSafeArea()
-            .environmentObject(BusinessData())
             .environmentObject(BusinessData())
     }
 }
